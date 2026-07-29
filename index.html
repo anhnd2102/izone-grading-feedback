@@ -4,146 +4,226 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IZONE - Đã nhận bài chấm</title>
+
+  <!-- Geologica font via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ============================================
+       IZONE Design System — adapted from izone.edu.vn
+       ============================================ */
+
     :root {
-      --color-header: #1e293b;
-      --color-label: #64748b;
-      --color-submit-btn-bg: #2563eb;
-      --border-radius-input: 8px;
-      --color-input-border: #cbd5e1;
-      --color-error: #dc2626;
-      --font-size-test-notice: 0.875rem;
+      /* Primary brand */
+      --color-primary:       #db0829;
+      --color-primary-hover: #ef3753;
+      --color-primary-light: #fef5f5;
+
+      /* Surfaces */
+      --color-bg:            #ffffff;
+      --color-bg-secondary:  #f3f4f6;
+      --color-border:        #f3f4f6;
+
+      /* Text */
+      --color-text:          #404040;
+      --color-text-secondary:#475569;
+      --color-text-muted:    #64748b;
+
+      /* Button (filled — IZONE dark blue) */
+      --color-btn-filled:    #174266;
+      --color-btn-filled-hover: #386991;
+
+      /* Feedback / tech button */
+      --color-feedback-btn:  #db0829;
+      --color-feedback-hover:#c40722;
+
+      /* Spacing (12px base unit) */
+      --spacing-1: 12px;
+      --spacing-2: 24px;
+      --spacing-3: 36px;
+
+      /* Borders */
+      --radius-card:   16px;
+      --radius-btn:    8px;
+      --radius-subtle: 6px;
+
+      /* Shadows — IZONE extracted */
+      --shadow-low:  rgba(0, 0, 0, 0.04) 0px 2px 8px 0px;
+      --shadow-mid:  rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
+
+      /* Typography */
+      --font-heading: 'Geologica', ui-sans-serif, system-ui, sans-serif;
+      --font-body:    ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #f1f5f9;
-      color: #334155;
+      font-family: var(--font-body);
+      background: var(--color-bg-secondary);
+      color: var(--color-text);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: var(--spacing-2);
     }
 
     .container {
-      background: #ffffff;
-      max-width: 560px;
+      background: var(--color-bg);
+      max-width: 520px;
       width: 100%;
-      border-radius: 16px;
-      padding: 40px 32px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-card);
+      padding: var(--spacing-3) var(--spacing-2);
+      box-shadow: var(--shadow-mid);
+      text-align: center;
     }
 
+    /* Logo */
+    .logo {
+      display: block;
+      margin: 0 auto var(--spacing-2);
+      height: 48px;
+      width: auto;
+    }
+
+    /* Heading */
     h2 {
-      color: var(--color-header);
-      margin-bottom: 24px;
-      font-size: 1.35rem;
-      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-2);
+      line-height: 32px;
     }
 
+    /* Notice box */
     .notice-box {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: var(--border-radius-input);
-      padding: 20px;
-      margin-bottom: 24px;
+      background: var(--color-primary-light);
+      border: 1px solid #fecaca;
+      border-radius: var(--radius-btn);
+      padding: 20px var(--spacing-2);
+      margin-bottom: var(--spacing-2);
       text-align: left;
-      font-size: 0.95rem;
+      font-size: 14px;
       line-height: 1.8;
+      color: var(--color-text);
     }
 
     .notice-box strong {
-      color: #1e40af;
+      color: var(--color-primary);
     }
 
     .notice-box code {
       background: #e2e8f0;
-      padding: 2px 6px;
+      padding: 2px 8px;
       border-radius: 4px;
       color: #475569;
       margin-top: 8px;
       display: inline-block;
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-      font-size: 0.85rem;
+      font-size: 13px;
     }
 
-    .btn-feedback {
+    /* Feedback label */
+    .feedback-label {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      margin-bottom: var(--spacing-1);
+    }
+
+    /* Filled button (IZONE style: #174266 bg, 8px radius) */
+    .btn-filled {
       display: inline-block;
-      background-color: var(--color-submit-btn-bg);
+      background: var(--color-btn-filled);
       color: #ffffff;
       padding: 12px 28px;
       text-decoration: none;
-      border-radius: var(--border-radius-input);
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-      transition: background-color 0.2s, transform 0.1s;
+      border-radius: var(--radius-btn);
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: var(--spacing-2);
+      transition: background-color 0.3s, transform 0.15s;
     }
 
-    .btn-feedback:hover {
-      background-color: #1d4ed8;
+    .btn-filled:hover {
+      background: var(--color-btn-filled-hover);
       transform: translateY(-1px);
     }
 
+    /* Divider */
     .divider {
-      border-top: 1px solid var(--color-input-border);
+      border-top: 1px solid var(--color-border);
       padding-top: 20px;
-      margin-top: 4px;
     }
 
+    /* Emergency contact */
     .emergency {
-      color: var(--color-error);
-      font-size: var(--font-size-test-notice);
+      color: var(--color-primary);
+      font-size: 14px;
       margin: 0;
+      line-height: 1.7;
     }
 
     .emergency strong {
-      font-size: 1rem;
+      font-size: 16px;
     }
 
-    @media (max-width: 480px) {
-      .container { padding: 28px 20px; }
-      h2 { font-size: 1.15rem; }
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container {
+        padding: var(--spacing-2) 16px;
+        border-radius: var(--radius-btn);
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 28px;
+      }
+      .btn-filled {
+        padding: 10px 24px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div style="text-align: center;">
 
-      <!-- Tiêu đề -->
-      <h2>🎉 Đã nhận bài thành công!</h2>
+    <!-- Logo -->
+    <img src="logo-izone.png" alt="IZONE Logo" class="logo">
 
-      <!-- Hộp thông báo -->
-      <div class="notice-box">
-        <strong>⏱️ LƯU Ý THỜI GIAN CHẤM:</strong><br>
-        Thời gian chấm bài sẽ dao động trong <strong>15-20 phút</strong>.<br>
-        Sau khi hoàn tất, hệ thống sẽ gửi Email thông báo với tiêu đề:<br>
-        <code>CHẤM BÀI TỰ ĐỘNG [LỚP] - [NGÀY]</code>
-      </div>
+    <!-- Tiêu đề -->
+    <h2>🎉 Đã nhận bài thành công!</h2>
 
-      <!-- Nút Feedback -->
-      <p style="color: var(--color-label); margin-bottom: 12px;">
-        Nếu bài chấm gặp vấn đề, vui lòng báo cáo cho team Kỹ thuật:
-      </p>
-      <a href="https://forms.gle/u4ojsT5g33vpWDih8" target="_blank" class="btn-feedback">
-        📝 Gửi Feedback Kỹ Thuật
-      </a>
-
-      <!-- Thông tin liên hệ khẩn cấp -->
-      <div class="divider">
-        <p class="emergency">
-          🚨 Nếu bạn thực sự cần gấp, vui lòng liên hệ Đức Anh:<br>
-          <strong>0983006729 (ZALO)</strong>
-        </p>
-      </div>
-
+    <!-- Hộp thông báo -->
+    <div class="notice-box">
+      <strong>⏱️ LƯU Ý THỜI GIAN CHẤM:</strong><br>
+      Thời gian chấm bài sẽ dao động trong <strong>15-20 phút</strong>.<br>
+      Sau khi hoàn tất, hệ thống sẽ gửi Email thông báo với tiêu đề:<br>
+      <code>CHẤM BÀI TỰ ĐỘNG [LỚP] - [NGÀY]</code>
     </div>
+
+    <!-- Nút Feedback -->
+    <p class="feedback-label">
+      Nếu bài chấm gặp vấn đề, vui lòng báo cáo cho team Kỹ thuật:
+    </p>
+    <a href="https://forms.gle/u4ojsT5g33vpWDih8" target="_blank" class="btn-filled">
+      📝 Gửi Feedback Kỹ Thuật
+    </a>
+
+    <!-- Thông tin liên hệ khẩn cấp -->
+    <div class="divider">
+      <p class="emergency">
+        🚨 Nếu bạn thực sự cần gấp, vui lòng liên hệ Đức Anh:<br>
+        <strong>0983006729 (ZALO)</strong>
+      </p>
+    </div>
+
   </div>
 
 </body>

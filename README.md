@@ -1,12 +1,13 @@
-# IZONE Grading Feedback
+# IZONE Grading Confirmation Page
 
-Trang phản hồi tĩnh cho giáo viên IZONE sau khi thực hiện chấm bài tự động.
+Trang xác nhận cho giáo viên IZONE sau khi nộp bài chấm tự động qua Google Form.
 
-## Cách dùng
+## Flow
 
-1. Mở `index.html` trong trình duyệt
-2. Dán kết quả chấm bài tự động vào ô "Kết quả chấm bài"
-3. Nhập phản hồi / góp ý cho giáo viên
-4. Xem trước → Copy → Gửi cho GV
+1. GV điền form chấm bài: https://forms.gle/rUFgteBdUuZMSpRD8
+2. Sau khi submit, Google Form redirect về trang này
+3. Trang hiển thị thông báo "Đã nhận bài thành công" + thời gian chấm + liên hệ khẩn
 
-Hosted via GitHub Pages: https://anhnd2102.github.io/izone-grading-feedback
+## Live
+
+https://anhnd2102.github.io/izone-grading-feedback/
